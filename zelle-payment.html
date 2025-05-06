@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zelle Payment Instructions</title>
+  <style>
+    /* Reset and Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      transition: background-color 0.3s ease;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      background-color: #f9fafb;
+      color: #1f2937;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      background-color: white;
+      color: #1f2937;
+      border: 1px solid #e5e7eb;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .instructions {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      margin-bottom: 2rem;
+    }
+
+    .phone-number {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #6D1ED4;
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background-color: #f3f4f6;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      user-select: all;
+    }
+
+    .steps {
+      text-align: left;
+      margin: 2rem 0;
+    }
+
+    .steps li {
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .note {
+      font-size: 0.875rem;
+      color: #6b7280;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Back to Home
+    </a>
+
+    <div class="instructions">
+      <h1>Donate with Zelle</h1>
+      <p>To send a donation via Zelle, please use the following phone number:</p>
+      
+      <div class="phone-number" onclick="copyToClipboard(this.textContent)">
+        (510) 415-2257
+      </div>
+
+      <div class="steps">
+        <h2>How to donate:</h2>
+        <ol>
+          <li>Open your banking app and select "Send money with Zelle"</li>
+          <li>Enter the phone number above</li>
+          <li>Enter the amount you'd like to donate</li>
+          <li>Review and confirm the donation</li>
+        </ol>
+      </div>
+
+      <p class="note">Click on the phone number to copy it to your clipboard</p>
+    </div>
+  </div>
+
+  <script>
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const phoneNumber = document.querySelector('.phone-number');
+        const originalText = phoneNumber.textContent;
+        phoneNumber.textContent = 'Copied!';
+        setTimeout(() => {
+          phoneNumber.textContent = originalText;
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html> 
