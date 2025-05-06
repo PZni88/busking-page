@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyLinks - Your Digital Identity</title>
+  <title>PZ's Links</title>
   <style>
     /* Reset and Base Styles */
     *, *::before, *::after {
@@ -148,9 +148,14 @@
       color: #008CFF;
     }
 
+    .light-theme .link-item[href*="zelle"]:hover {
+      background-color: rgba(109, 30, 212, 0.3);
+      color: #6D1ED4;
+    }
+
     .light-theme .link-item[href*="instagram"]:hover {
-      background-color: rgba(131, 58, 180, 0.3);
-      color: #833AB4;
+      background-color: rgba(193, 53, 132, 0.3);
+      color: #C13584;
     }
 
     .light-theme .link-item[href*="apple"]:hover {
@@ -179,9 +184,14 @@
       color: #008CFF;
     }
 
+    .dark-theme .link-item[href*="zelle"]:hover {
+      background-color: rgba(109, 30, 212, 0.3);
+      color: #6D1ED4;
+    }
+
     .dark-theme .link-item[href*="instagram"]:hover {
-      background-color: rgba(131, 58, 180, 0.3);
-      color: #833AB4;
+      background-color: rgba(193, 53, 132, 0.3);
+      color: #C13584;
     }
 
     .dark-theme .link-item[href*="apple"]:hover {
@@ -245,40 +255,50 @@
   <div class="container">
     <div class="profile">
       <div class="profile-img">
-        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Profile Picture">
+        <img src="https://api.dicebear.com/9.x/miniavs/svg?seed=Adrian&body=tShirt&eyes=happy&hair=classic01&mouth=default&mustache[]&skinColor=f5d0c5,ffcb7e&backgroundColor=b6e3f4,d1d4f9" alt="avatar" />
       </div>
-      <h1 class="profile-name">Your Name</h1>
-      <p class="profile-bio">Your bio goes here. Make it short and sweet!</p>
+      <h1 class="profile-name">PZ</h1>
+      <p class="profile-bio">Thanks for being a part of my musical journey!</p>
     </div>
     
     <div class="links">
-      <a href="venmo://" class="link-item">
+      <a href="https://venmo.com/u/Yuxuan-Zhang-666" class="link-item">
         <span>Support me on Venmo</span>
         <span class="link-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-dollar-sign"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 6v2m0 8v2"/></svg>
         </span>
       </a>
       
-      <a href="instagram://" class="link-item">
+      <a href="zelle-payment.html" class="link-item">
+        <span>Support me on Zelle</span>
+        <span class="link-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/>
+            <path d="M12 6v2m0 8v2"/>
+          </svg>
+        </span>
+      </a>
+      
+      <a href="https://www.instagram.com/pz_yxzhang/" class="link-item">
         <span>Follow on Instagram</span>
         <span class="link-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
         </span>
       </a>
       
-      <a href="applemusic://" class="link-item">
+      <a href="https://music.apple.com/us/artist/%E5%BC%A0%E7%8E%89%E9%93%89/1739051196" class="link-item">
         <span>My Apple Music</span>
         <span class="link-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-            <path d="M12 6v12"/>
-            <path d="M8 8l4-2 4 2"/>
-            <path d="M8 16l4 2 4-2"/>
+            <path d="M9 18V5l12-2v13"/>
+            <circle cx="6" cy="18" r="3"/>
+            <circle cx="18" cy="16" r="3"/>
           </svg>
         </span>
       </a>
       
-      <a href="spotify://" class="link-item">
+      <a href="https://open.spotify.com/artist/0uKkcXQvgC43l3ai5qKLlh" class="link-item">
         <span>My Spotify</span>
         <span class="link-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -289,7 +309,7 @@
         </span>
       </a>
       
-      <a href="linkedin://" class="link-item">
+      <a href="https://www.linkedin.com/in/yuxuan-pz-zhang/" class="link-item">
         <span>My LinkedIn</span>
         <span class="link-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
@@ -305,7 +325,7 @@
     </div>
     
     <div class="footer">
-      © 2024 MyLinks
+      © 2024 PZ Software Services
     </div>
   </div>
 
