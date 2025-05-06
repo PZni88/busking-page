@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyLinks - Your Digital Identity</title>
+  <style>
+    /* Reset and Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      transition: background-color 0.3s ease;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+    
+    /* Theme Styles */
+    body.light-theme {
+      background-color: #f9fafb;
+      color: #1f2937;
+    }
+    
+    body.dark-theme {
+      background-color: #111827;
+      color: #f9fafb;
+    }
+    
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    
+    /* Profile Section */
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    
+    .profile-img {
+      width: 6rem;
+      height: 6rem;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 1rem;
+      background-color: #e5e7eb;
+    }
+    
+    .profile-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .profile-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    
+    .profile-bio {
+      font-size: 0.875rem;
+      text-align: center;
+      max-width: 24rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.9;
+    }
+    
+    /* Links Section */
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 100%;
+    }
+    
+    .link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(0px);
+    }
+    
+    .link-item:active {
+      transform: scale(0.98);
+    }
+    
+    .link-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: currentColor;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+    
+    /* Theme-specific Link Styles */
+    .light-theme .link-item {
+      background-color: white;
+      color: #1f2937;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .light-theme .link-item:hover {
+      background-color: transparent;
+      backdrop-filter: blur(8px);
+      border-color: transparent;
+    }
+    
+    .dark-theme .link-item {
+      background-color: #1f2937;
+      color: white;
+      border: 1px solid #374151;
+    }
+    
+    .dark-theme .link-item:hover {
+      background-color: transparent;
+      backdrop-filter: blur(8px);
+      border-color: transparent;
+    }
+
+    /* Brand-specific hover colors */
+    .light-theme .link-item[href*="venmo"]:hover {
+      background-color: rgba(0, 140, 255, 0.3);
+      color: #008CFF;
+    }
+
+    .light-theme .link-item[href*="instagram"]:hover {
+      background-color: rgba(131, 58, 180, 0.3);
+      color: #833AB4;
+    }
+
+    .light-theme .link-item[href*="apple"]:hover {
+      background-color: rgba(251, 45, 63, 0.3);
+      color: #FB2D3F;
+    }
+
+    .light-theme .link-item[href*="spotify"]:hover {
+      background-color: rgba(29, 185, 84, 0.3);
+      color: #1DB954;
+    }
+
+    .light-theme .link-item[href*="linkedin"]:hover {
+      background-color: rgba(10, 102, 194, 0.3);
+      color: #0A66C2;
+    }
+
+    .light-theme .link-item[href*="mailto"]:hover {
+      background-color: rgba(234, 67, 53, 0.3);
+      color: #EA4335;
+    }
+
+    /* Dark theme brand-specific hover colors */
+    .dark-theme .link-item[href*="venmo"]:hover {
+      background-color: rgba(0, 140, 255, 0.3);
+      color: #008CFF;
+    }
+
+    .dark-theme .link-item[href*="instagram"]:hover {
+      background-color: rgba(131, 58, 180, 0.3);
+      color: #833AB4;
+    }
+
+    .dark-theme .link-item[href*="apple"]:hover {
+      background-color: rgba(251, 45, 63, 0.3);
+      color: #FB2D3F;
+    }
+
+    .dark-theme .link-item[href*="spotify"]:hover {
+      background-color: rgba(29, 185, 84, 0.3);
+      color: #1DB954;
+    }
+
+    .dark-theme .link-item[href*="linkedin"]:hover {
+      background-color: rgba(10, 102, 194, 0.3);
+      color: #0A66C2;
+    }
+
+    .dark-theme .link-item[href*="mailto"]:hover {
+      background-color: rgba(234, 67, 53, 0.3);
+      color: #EA4335;
+    }
+
+    /* Hover effect for all links */
+    .link-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-color: transparent;
+    }
+
+    .link-item:hover::before {
+      opacity: 0;
+    }
+    
+    /* Icon */
+    .link-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Footer */
+    .footer {
+      margin-top: 3rem;
+      font-size: 0.75rem;
+      opacity: 0.7;
+      text-align: center;
+    }
+    
+    /* Animation for links */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .link-item {
+      animation: fadeIn 0.3s ease forwards;
+    }
+  </style>
+</head>
+<body class="light-theme">
+  <div class="container">
+    <div class="profile">
+      <div class="profile-img">
+        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Profile Picture">
+      </div>
+      <h1 class="profile-name">Your Name</h1>
+      <p class="profile-bio">Your bio goes here. Make it short and sweet!</p>
+    </div>
+    
+    <div class="links">
+      <a href="venmo://" class="link-item">
+        <span>Support me on Venmo</span>
+        <span class="link-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-dollar-sign"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 6v2m0 8v2"/></svg>
+        </span>
+      </a>
+      
+      <a href="instagram://" class="link-item">
+        <span>Follow on Instagram</span>
+        <span class="link-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        </span>
+      </a>
+      
+      <a href="applemusic://" class="link-item">
+        <span>My Apple Music</span>
+        <span class="link-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+            <path d="M12 6v12"/>
+            <path d="M8 8l4-2 4 2"/>
+            <path d="M8 16l4 2 4-2"/>
+          </svg>
+        </span>
+      </a>
+      
+      <a href="spotify://" class="link-item">
+        <span>My Spotify</span>
+        <span class="link-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+            <path d="M16.5 16.5c-1.5 1-3.5 1.5-4.5 1.5s-3-.5-4.5-1.5"/>
+            <path d="M8 12c0-2.21 1.79-4 4-4s4 1.79 4 4"/>
+          </svg>
+        </span>
+      </a>
+      
+      <a href="linkedin://" class="link-item">
+        <span>My LinkedIn</span>
+        <span class="link-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        </span>
+      </a>
+      
+      <a href="mailto:easypz@berkeley.edu" class="link-item">
+        <span>Contact Me</span>
+        <span class="link-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </span>
+      </a>
+    </div>
+    
+    <div class="footer">
+      © 2024 MyLinks
+    </div>
+  </div>
+
+  <script>
+    // Function to set theme based on system preference
+    function setThemeFromSystemPreference() {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.body.classList.remove('light-theme', 'dark-theme');
+      document.body.classList.add(prefersDark ? 'dark-theme' : 'light-theme');
+    }
+
+    // Set initial theme
+    setThemeFromSystemPreference();
+
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setThemeFromSystemPreference);
+  </script>
+</body>
+</html>
